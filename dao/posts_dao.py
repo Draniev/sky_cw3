@@ -6,7 +6,7 @@ class PostsDAO:
         self.path = path
 
     def load_all(self) -> list[dict]:
-        with open(self.path, 'r') as file:
+        with open(self.path, 'r', encoding='utf-8') as file:
             json_data = json.load(file)
         return json_data
 

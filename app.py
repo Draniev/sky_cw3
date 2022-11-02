@@ -9,11 +9,11 @@ from dao.comments_dao import CommentsDAO
 from api.views import api_blueprint
 
 app = Flask(__name__)
-app.config['JSON_AS_ASCII'] = False
+# app.config['JSON_AS_ASCII'] = False
 # pytest ругается ворнингом на эту 👆🏻 запись конфига. Предлагает "вместо этого
 # установить вон то 👇🏻", но я вообще не смог нагуглить что именно имеется ввиду
 # хотя и очень старался
-# app.json.ensure_ascii
+app.json.ensure_ascii = 'FALSE'
 app.register_blueprint(api_blueprint)
 posts_dao = PostsDAO('./data/posts.json')
 comments_dao = CommentsDAO('./data/comments.json')
